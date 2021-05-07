@@ -1,0 +1,616 @@
+@import 'variables';
+@import 'mixins';
+
+
+html {
+    @include box-sizing(border-box);
+}
+
+*,
+*:after,
+*:before {
+    @include box-sizing(inherit);
+}
+
+body {
+    background-color: $grisFondo;
+}
+
+p{
+    margin: 0;
+}
+
+.cabecera {
+    background-color: $verdeCabecera;
+    top: 0;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 127px;
+    content: "";
+}
+
+/***seccion de la lista de chats****/
+.main {
+    width: 74%;
+    margin: 0 auto;
+    z-index: 2;
+    top:19px;
+    position: relative;
+    box-shadow: 0 1px 1px 0;
+    display: flex;
+
+    @include tablet {
+        width: 100%;
+        margin: 0 auto;
+        z-index: 2;
+        top:0px;
+        position: relative;
+        box-shadow: 0 1px 1px 0;
+        display: flex;
+    }  
+
+    @include desktop {
+        width: 74%;
+        margin: 0 auto;
+        z-index: 2;
+        top:19px;
+        position: relative;
+        box-shadow: 0 1px 1px 0;
+        display: flex;
+    }  
+
+    .chats {
+        display: flex;
+        flex-direction: column;
+        flex:30%;
+        background-color: $cabeceraChat;
+
+        .headerChats {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 59px;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: .6rem;
+            border: 1px solid $bordes;
+
+            .cabeceraChats {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                .imagenMain {
+                    position: relative;
+                    height: 40px;
+                    width: 40px;
+                    cursor: pointer;
+                    .imagenDiv {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        .imagenOwner {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .estadoOpciones {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                .estado {
+                    padding: .5rem 1rem;
+
+                    i {
+                        color: $colorIconos;
+                    }
+                }
+            }
+        }
+
+        .notificaciones {
+            display: flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+            border-right: 1px solid $bordes;
+
+            .notificacionesContenido {
+                background-color: $notificaciones;
+                padding: .8rem;
+                display: flex;
+                align-items: center;
+                min-height: 62px;
+                height: 90px;
+
+                .campanaNotificaciones {
+                    margin-right: 15px;
+                    background-color: white;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    i {
+                        color: $notificaciones;
+                    }
+                }
+
+                .textoNotificaciones {
+                    display: flex;
+                    flex:1;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .textNotificaciones {
+                        font-size: 16px;
+                        line-height: 21px;
+                        color: $textoSecundario;
+                        margin: 0;
+                    }
+
+                    .textNotificaciones2 {
+                        font-size: 14px;
+                        line-height: 21px;
+                        color: $textoSecundario;
+                        margin: 0;
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .buscador {
+            position: relative;
+            height: 50px;
+            box-sizing: border-box;
+            background-color: $colorBuscador;
+            border-bottom: 1px solid $bordes;
+            border-right: 1px solid $bordes;
+
+            @include tablet {
+                height: 52px;
+            }
+            
+            @include desktop {
+                height: 50px;
+            }
+
+
+            .lupa {
+                position: absolute;
+                top: 14px;
+                z-index: 100;
+                border: none;
+                left: 24px;
+                background-color: unset;
+                cursor: pointer;
+
+            }
+
+            .textoBuscar {
+                position: absolute;
+                top: 16px;
+                z-index: 100;
+                font-size: 14px;
+                height: 20px;
+                color: $textoTerciario;
+                left: 114px;
+
+                @include tablet {
+                    top: 10px;
+                    left: 60px;
+                }
+
+                @include desktop {
+                    top: 14px;
+                    left: 114px;
+                }
+            }
+
+            .label {
+                right: 14px;
+                left: 12px;
+                padding-right: 32px;
+                padding-left: 65px;
+                background-color: white;
+                border-radius: 18px;
+                position: absolute;
+                top: 7px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                height: 35px;
+            }
+        }
+
+        .listadoChats::-webkit-scrollbar {
+            width: 4px!important; 
+            height: 0px!important;
+        }
+        .listadoChats::-webkit-scrollbar-track{
+            background: white;    
+        }
+
+        .listadoChats::-webkit-scrollbar-thumb{
+            border-radius: 20px;       /* roundness of the scroll thumb */
+            border: 3px solid $textoTerciario;  /* creates padding around scroll thumb */
+        }
+        .listadoChats {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            z-index: 1;
+            overflow-y: auto;
+            background-color: white;
+            position: relative;
+            border-right: 1px solid $bordes;
+
+            .contenedorChats {
+                height: 100%;
+
+                @include tablet {
+                    height: 100%;
+                }
+
+                @include desktop {
+                    height: 700px;
+                }
+                .listado {
+                    position: relative;
+                    overflow:hidden;
+                    .chatPersona {
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        height: 72px;
+
+                        @include tablet {
+                            height: 90px;
+                        }
+
+                        @include desktop {
+                            height: 72px;
+                        }
+                        .fotoPersona {
+                            display: flex;
+                            align-items: center;
+                            padding: 0 15px 0 15px;
+                            .fotoPerfil {
+                                height: 49px;
+                                width: 49px;
+                                position: relative;
+                                .fotoPerfilPersona {
+                                    position: absolute;
+                                    top: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 100%;
+                                    height: 100%;
+                                    cursor: pointer;
+                                    .perfilFoto{
+                                        position: relative;
+                                        display: block;
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                        }
+                        .mensajePersona {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            flex-grow: 1;
+                            min-width:0;
+                            flex-basis: auto;
+                            padding-right: 15px;
+                            border-bottom: 1px solid $bordes;
+                            .nombrePersona {
+                                display: flex;
+                                align-items: center;
+                            }
+                            .mensajeChat {
+                                display: flex;
+                                align-items: center;
+                                font-size: 13px;
+                                line-height: 20px;
+                                .estiloMensaje {
+                                    flex-grow: 1;
+                                    overflow:hidden;
+                                    text-overflow: ellipsis;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+
+    /***seccion del chat elegido*****/
+    .chat {
+        flex: 70%;
+        position: relative;
+        height: 100%;
+        background-color: $cabeceraChat;
+        border-bottom: 1px solid $bordes;
+
+        .chatMain {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 59px;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: .6rem;
+            border-bottom: 1px solid $bordes;
+
+            .chatCabecera {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+
+                .imagenMain {
+                    position: relative;
+                    height: 40px;
+                    width: 40px;
+                    cursor: pointer;
+                    .imagenDiv {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        .imagenOwner {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .nombreUsuario {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 15px;
+                   justify-content: center;
+
+                   .conexionUsuario {
+                       color: $textoTerciario;
+                       font-size: 12;
+                   }
+                }
+            }
+
+            .buscarOpciones {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                .estado {
+                    padding: .5rem 1rem;
+
+                    i {
+                        color: $colorIconos;
+                    }
+                }
+            }
+            
+        }
+
+        .chatUnico::-webkit-scrollbar {
+            width: 4px!important; 
+            height: 0px!important;
+        }
+        .chatUnico::-webkit-scrollbar-track{
+            background: white;    
+        }
+
+        .chatUnico::-webkit-scrollbar-thumb{
+            border-radius: 20px;      
+            border: 3px solid $textoTerciario; 
+        }
+
+        .contenedorChat {
+            position: relative;
+            z-index: 1;
+            flex:1 1 0;
+            order: 2;
+
+            .chatUnico {
+                top:0;
+                z-index: 100;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y:scroll ;
+                background-image: url(../img//fondo.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                @include tablet {
+                    top:0;
+                    z-index: 100;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    overflow-x: hidden;
+                    overflow-y:scroll ;
+                    background-image: url(../img//fondo.jpg);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover; 
+                }
+
+                @include desktop {
+                    top:0;
+                    z-index: 100;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 768px;
+                    overflow-x: hidden;
+                    overflow-y:scroll ;
+                    background-image: url(../img//fondo.jpg);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;  
+                }
+
+                .chatIngresa {
+                    padding-left: 9%;
+                    padding-right: 9%;
+                    margin-bottom: 12px;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    .mensajeIngresa{
+                        position: relative;
+                        max-width: 65%;
+
+                        .contenedorMensaje {
+                            background-color: $colorMensajeEnviado;
+                            border-radius: 10px;
+                            .mensajeIntro {
+                                padding: 6px 7px 8px 9px;
+                            }
+                        }
+                    }
+                }
+
+                .chatSale {
+                    padding-left: 9%;
+                    padding-right: 9%;
+                    margin-bottom: 12px;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    .mensajeSale{
+                        position: relative;
+                        max-width: 65%;
+                        .contenedorMensaje {
+                            background-color: white;
+                            border-radius: 10px;
+                            .mensajeOut {
+                                padding: 6px 7px 8px 9px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .footer {
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            flex: none;
+            order: 3;
+            width: 100%;
+            min-height: 62px;
+            background-color: $cabeceraChat;
+
+            .contenedorFooter {
+                position: relative;
+                z-index: 2;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                max-width: 100%;
+                min-height: 62px;
+                padding: .6rem;
+                .emoticones {
+                    display: flex;
+                    cursor: pointer;
+                    .emociones {
+                        position: relative;
+                        display: flex;
+                        width: 26px;
+                        height: 42px;
+                        margin-right: 15px;
+                        align-items: center;
+                        color: $colorIconos;
+                    }
+
+                    .adjuntar {
+                        position: relative;
+                        display: flex;
+                        width: 26px;
+                        height: 42px;
+                        margin-right: 15px;
+                        align-items: center;
+                        color: $colorIconos;
+                        margin-left: 8px;
+                    }
+                }
+
+                .escribir {
+                    position: relative;
+                    width: 96%;
+
+                    .mensaje {
+                        padding: 9px 12px 11px;
+                        margin: 5px 10px;
+                        border-radius: 21px;
+                        box-sizing: border-box;
+                        flex: 1 1 auto;
+                        width: inherit;
+                        outline: none;
+                        border: none;
+
+                        &::placeholder {
+                            color: $textoTerciario;
+                        }
+                    }
+                }
+
+                .audio {
+                    padding: 5px 10px;
+                    color: $colorIconos;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
