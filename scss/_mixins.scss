@@ -18,6 +18,12 @@
     }
 }
 
+@mixin hd {
+    @media (min-width: #{$hd}){
+        @content;
+    }
+}
+
 @mixin box-sizing($box-model) {
     box-sizing: $box-model;
 }

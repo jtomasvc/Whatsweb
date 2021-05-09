@@ -1,6 +1,7 @@
 /*Media queries*/
 html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 *,
@@ -29,14 +30,24 @@ p {
 
 /***seccion de la lista de chats****/
 .main {
-  width: 74%;
+  width: 100%;
   margin: 0 auto;
   z-index: 2;
-  top: 19px;
+  top: 0px;
   position: relative;
   box-shadow: 0 1px 1px 0;
   display: flex;
+  overflow: hidden;
+  height: 100vh;
   /***seccion del chat elegido*****/
+}
+
+@media (min-width: 480px) {
+  .main {
+    width: 74%;
+    top: 19;
+    height: 96vh;
+  }
 }
 
 @media (min-width: 768px) {
@@ -48,26 +59,54 @@ p {
     position: relative;
     box-shadow: 0 1px 1px 0;
     display: flex;
+    height: 100vh;
   }
 }
 
 @media (min-width: 1366px) {
   .main {
-    width: 74%;
+    width: 84%;
     margin: 0 auto;
     z-index: 2;
     top: 19px;
     position: relative;
     box-shadow: 0 1px 1px 0;
     display: flex;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main {
+    width: 74%;
+    height: 97.5vh;
   }
 }
 
 .main .chats {
   display: flex;
   flex-direction: column;
-  flex: 30%;
+  flex: 100%;
   background-color: #ededed;
+}
+
+@media (min-width: 480px) {
+  .main .chats {
+    flex: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .main .chats {
+    flex: 40%;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main .chats {
+    flex: 30%;
+  }
 }
 
 .main .chats .headerChats {
@@ -86,6 +125,7 @@ p {
   display: flex;
   flex-direction: row;
   position: relative;
+  cursor: pointer;
 }
 
 .main .chats .headerChats .cabeceraChats .imagenMain {
@@ -125,6 +165,101 @@ p {
 
 .main .chats .headerChats .estadoOpciones .estado i {
   color: #919191;
+}
+
+.main .chats .headerChats nav {
+  position: absolute;
+  width: 0;
+  top: -1px;
+  z-index: 100;
+  background-color: #ededed;
+  overflow-x: hidden;
+  transition: 0.4s;
+  box-sizing: border-box;
+}
+
+.main .chats .headerChats nav .perfil {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 108px;
+  background-color: #00bfa5;
+}
+
+.main .chats .headerChats nav .textoDevolucion {
+  display: flex;
+  color: white;
+}
+
+.main .chats .headerChats nav .textoDevolucion p {
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner {
+  display: flex;
+  justify-content: center;
+  background-color: #ededed;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner .perfilOwner {
+  position: relative;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner .perfilOwner .tamanoFoto {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner .perfilOwner .tamanoFoto .contenedorFoto {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner .perfilOwner .tamanoFoto .contenedorFoto .ownerFoto {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  left: 0;
+}
+
+.main .chats .headerChats nav .fotoPerfilOwner .perfilOwner .tamanoFoto .contenedorFoto .ownerFoto .claseFotoOwner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.main .chats .headerChats nav .nombreOwner {
+  padding: 14px 30px 10px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.main .chats .headerChats nav .nombreOwner .marginAbajo {
+  margin-bottom: 14px;
+  color: #00bfa5;
+  font-size: 14px;
+  line-height: normal;
+}
+
+.main .chats .headerChats nav .nombreOwner .datosOwner {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+}
+
+.main .chats .headerChats nav .textoInformativo {
+  margin: 4px 20px 28px 30px;
+  color: #acacac;
 }
 
 .main .chats .notificaciones {
@@ -185,16 +320,22 @@ p {
 
 .main .chats .buscador {
   position: relative;
-  height: 50px;
+  height: 77px;
   box-sizing: border-box;
   background-color: #f6f6f6;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
 }
 
+@media (min-width: 480px) {
+  .main .chats .buscador {
+    height: 50px;
+  }
+}
+
 @media (min-width: 768px) {
   .main .chats .buscador {
-    height: 52px;
+    height: 62px;
   }
 }
 
@@ -207,7 +348,7 @@ p {
 .main .chats .buscador .lupa {
   position: absolute;
   top: 14px;
-  z-index: 100;
+  z-index: 99;
   border: none;
   left: 24px;
   background-color: unset;
@@ -217,7 +358,7 @@ p {
 .main .chats .buscador .textoBuscar {
   position: absolute;
   top: 16px;
-  z-index: 100;
+  z-index: 99;
   font-size: 14px;
   height: 20px;
   color: #acacac;
@@ -226,7 +367,7 @@ p {
 
 @media (min-width: 768px) {
   .main .chats .buscador .textoBuscar {
-    top: 10px;
+    top: 15px;
     left: 60px;
   }
 }
@@ -286,11 +427,17 @@ p {
 
 @media (min-width: 768px) {
   .main .chats .listadoChats .contenedorChats {
-    height: 100%;
+    height: 1014px;
   }
 }
 
 @media (min-width: 1366px) {
+  .main .chats .listadoChats .contenedorChats {
+    height: 700px;
+  }
+}
+
+@media (min-width: 1920px) {
   .main .chats .listadoChats .contenedorChats {
     height: 700px;
   }
@@ -381,11 +528,37 @@ p {
 }
 
 .main .chat {
-  flex: 70%;
+  flex: 0%;
   position: relative;
   height: 100%;
+  z-index: 100;
   background-color: #ededed;
   border-bottom: 1px solid #dadada;
+  overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .main .chat {
+    flex: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  .main .chat {
+    height: 1024px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main .chat {
+    height: 1024;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main .chat {
+    height: unset;
+  }
 }
 
 .main .chat .chatMain {
@@ -398,6 +571,7 @@ p {
   box-sizing: border-box;
   padding: .6rem;
   border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
 }
 
 .main .chat .chatMain .chatCabecera {
@@ -476,6 +650,25 @@ p {
   z-index: 1;
   flex: 1 1 0;
   order: 2;
+  height: 85vh;
+}
+
+@media (min-width: 480px) {
+  .main .chat .contenedorChat {
+    height: 83vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .main .chat .contenedorChat {
+    height: 87vh;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main .chat .contenedorChat {
+    height: 83vh;
+  }
 }
 
 .main .chat .contenedorChat .chatUnico {
@@ -485,7 +678,6 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   background-image: url(../img//fondo.jpg);
@@ -502,13 +694,13 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     background-image: url(../img//fondo.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: calc(100vh - 132px);
   }
 }
 
@@ -527,6 +719,12 @@ p {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main .chat .contenedorChat .chatUnico {
+    height: 768px;
   }
 }
 
@@ -554,6 +752,24 @@ p {
   padding: 6px 7px 8px 9px;
 }
 
+.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .visto {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .visto span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .visto i {
+  color: #919191;
+}
+
+.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .visto i:last-child {
+  margin-right: 10px;
+}
+
 .main .chat .contenedorChat .chatUnico .chatSale {
   padding-left: 9%;
   padding-right: 9%;
@@ -576,6 +792,24 @@ p {
 
 .main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .mensajeOut {
   padding: 6px 7px 8px 9px;
+}
+
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i {
+  color: #919191;
+}
+
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i:last-child {
+  margin-right: 10px;
 }
 
 .main .chat .footer {
@@ -659,4 +893,217 @@ p {
   padding: 5px 10px;
   color: #919191;
   cursor: pointer;
+}
+
+.main .infoChatPersona {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  right: 0;
+  background-color: #ededed;
+  overflow-x: hidden;
+  transition: 0.4s;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .main .infoChatPersona {
+    position: relative;
+    width: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .main .infoChatPersona {
+    position: absolute;
+    z-index: 100;
+  }
+}
+
+@media (min-width: 1366px) {
+  .main .infoChatPersona {
+    position: relative;
+  }
+}
+
+.main .infoChatPersona header {
+  display: flex;
+  height: 59px;
+  align-items: center;
+}
+
+.main .infoChatPersona header i {
+  margin-right: 15px;
+  margin-left: 15px;
+  color: #919191;
+}
+
+.main .infoChatPersona .contenedorInformacion::-webkit-scrollbar {
+  width: 4px !important;
+  height: 0px !important;
+}
+
+.main .infoChatPersona .contenedorInformacion::-webkit-scrollbar-track {
+  background: white;
+}
+
+.main .infoChatPersona .contenedorInformacion::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #acacac;
+  /* creates padding around scroll thumb */
+}
+
+.main .infoChatPersona .contenedorInformacion {
+  height: 880px;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .main .infoChatPersona .contenedorInformacion {
+    height: 989px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main .infoChatPersona .contenedorInformacion {
+    height: 880px;
+  }
+}
+
+.main .infoChatPersona .imagenGrupo {
+  padding: 28px 30px 19px;
+  margin-bottom: 14px;
+  background-color: white;
+}
+
+.main .infoChatPersona .imagenGrupo .grupoImagen {
+  margin-bottom: 20px;
+}
+
+.main .infoChatPersona .imagenGrupo .grupoImagen .tamanoImagen {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.main .infoChatPersona .imagenGrupo .grupoImagen .tamanoImagen .imagenGroup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.main .infoChatPersona .imagenGrupo .grupoImagen .tamanoImagen .imagenGroup .cien {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.main .infoChatPersona .nombreGrupo {
+  display: flex;
+  flex-direction: column;
+}
+
+.main .infoChatPersona .nombreGrupo .nombre {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .infoChatPersona .nombreGrupo .nombre p {
+  font-size: 19px;
+}
+
+.main .infoChatPersona .ultima {
+  margin-top: 1rem;
+}
+
+.main .infoChatPersona .ultima span {
+  color: #acacac;
+  font-size: 14px;
+}
+
+.main .infoChatPersona .descripcion {
+  background-color: white;
+  padding: 1rem 2rem;
+  margin-bottom: 14px;
+}
+
+.main .infoChatPersona .descripcion p {
+  color: #00bfa5;
+}
+
+.main .infoChatPersona .anade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main .infoChatPersona .anade p {
+  color: black;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.main .infoChatPersona .archivos {
+  padding: 1rem 2rem;
+  background-color: white;
+  margin-bottom: 14px;
+}
+
+.main .infoChatPersona .archivos .enlaces {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .infoChatPersona .archivos .enlaces p {
+  color: #00bfa5;
+}
+
+.main .infoChatPersona .archivos p {
+  color: #acacac;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.main .infoChatPersona .silenciar {
+  padding: 1rem 2rem;
+  background-color: white;
+  margin-bottom: 14px;
+}
+
+.main .infoChatPersona .silenciar .notificacionesOut {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadada;
+  padding: 1rem 0 1rem 0;
+}
+
+.main .infoChatPersona .silenciar .notificacionesOut i {
+  color: #919191;
+}
+
+.main .infoChatPersona .silenciar .notificacionesOut:last-child {
+  border: unset;
+}
+
+.main .infoChatPersona .bloqueo {
+  padding: 1rem 2rem;
+  background-color: white;
+  margin-bottom: 14px;
+}
+
+.main .infoChatPersona .bloqueo .report {
+  display: flex;
+}
+
+.main .infoChatPersona .bloqueo .report i {
+  margin-right: 15px;
+  color: #df3333;
+}
+
+.main .infoChatPersona .bloqueo:last-child {
+  margin-bottom: 30px;
 }
