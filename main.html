@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>WhatsWeb</title>
+    
+</head>
+<body>
+    <div class="cabecera">
+    </div>
+
+    <div class="main">
+        <aside class="chats">
+            <header class="headerChats">
+                <div class="cabeceraChats">
+                    <div class="imagenMain" onclick="main()">
+                       <div class="imagenDiv">
+                           <img src="img/FotoPerfil.jpg" alt="Imagen Perfil" class="imagenOwner">
+                       </div>
+                    </div>
+                </div>
+
+                <div class="estadoOpciones">
+                    <div class="estado">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="estado">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <div class="estado">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <nav id="perfilOwner">
+                    <div class="cabeceraChats perfil"> 
+                        <div class="textoDevolucion" onclick="cerrar()">
+                            <i class="fas fa-arrow-left"></i> 
+                            <p>Perfil</p>
+                        </div>
+                    </div>
+                    <div class="fotoPerfilOwner">
+                        <div class="perfilOwner">
+                            <div class="tamanoFoto">
+                                <div class="contenedorFoto">
+                                    <div class="ownerFoto">
+                                        <img class="claseFotoOwner" src="img/FotoPerfil.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nombreOwner">
+                        <div class="marginAbajo">
+                            <p>Tu nombre</p>
+                        </div>
+
+                        <div class="datosOwner">
+                            <p>Tomas</p>
+                            <i class="fas fa-pen"></i>
+                        </div>
+                    </div>
+
+                    <div class="textoInformativo">
+                        <p>Este no es tu nombre de usuario ni un PIN. Este nombre sera visible para tus contactos de WhatsApp</p>
+                    </div>
+
+                    <div class="nombreOwner">
+                        <div class="marginAbajo">
+                            <p>Info.</p>
+                        </div>
+                        <div class="datosOwner">
+                            <p id="estadoPerfil"></p>
+                            <i class="fas fa-pen"></i>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="notificaciones">
+                <div class="notificacionesContenido">
+                    <div class="campanaNotificaciones">
+                        <i class="fas fa-bell-slash fa-1x"></i>
+                    </div>
+                    <div class="textoNotificaciones">
+                        <p class="textNotificaciones">Recibe notificaciones de mensajes nuevos</p>
+                        <p class="textNotificaciones2">Activar notificaciones de escritorio <span><i class="fas fa-chevron-right"></i></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buscador">
+                <button class="lupa">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="textoBuscar">
+                    Buscar o empezar un chat nuevo
+                </div>
+                <label class="label"></label>
+            </div>
+
+            <div class="listadoChats">
+                <div class="contenedorChats">
+                    <div class="listado" onclick="mostrarchat()">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/mama.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p id="nombreUsuario"></p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/negro.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Negro</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/ImagenPerfil.jpeg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Sofia</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/andres.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Andres</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/mrincreible.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Mr Increible</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/sherk.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>sherk</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/ironman.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Iron man</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/batman.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Batman</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/superman.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Superman</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/andrea.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Andrea</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/oficina.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Oficina</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/xbox.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Xbox</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="listado">
+                        <div class="chatPersona">
+                            <div class="fotoPersona">
+                                <div class="fotoPerfil">
+                                    <div class="fotoPerfilPersona">
+                                        <img class="perfilFoto" src="img/asado.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mensajePersona">
+                                <div class="nombrePersona">
+                                    <p>Asado</p>
+                                </div>
+                                <div class="mensajeChat">
+                                    <p class="estiloMensaje">Este es un mensaje para todos y debe ser largo para que quede oculto</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </aside>
+
+
+
+        <div class="chat" id="chat">
+           <header class="chatMain">
+               <div class="chatCabecera" >
+                   <div class="imagenMain" id="abrir" href="javascript:void(0)" onclick="mostrar()">
+                       <div class="imagenDiv">
+                            <img src="img/mrincreible.jpg" alt="Imagen Perfil" class="imagenOwner">
+                       </div>
+                   </div>
+
+                   <div class="nombreUsuario">
+                       <p id="nombreUsuarioChat"></p>
+                       <p class="conexionUsuario">En linea</p>
+                   </div>
+               </div>
+
+               <div class="buscarOpciones">
+                <div class="estado">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="estado">
+                    <i class="fas fa-ellipsis-v"></i>
+                </div> 
+               </div>
+           </header>
+
+
+           <div class="contenedorChat">
+               <div class="chatUnico">
+                    <div class="chatIngresa" >
+                        <div class="mensajeIngresa" id="container">
+                            <div class="contenedorMensaje" >
+
+                                    <button onclick="EliminarMensajes()">eliminar</button>
+                                <div class="visto">
+                                    <span>10:30</span>
+                                    <i class="fas fa-check"></i>
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chatSale">
+                        <div class="mensajeSale" id="containerllega">
+                            <div class="contenedorMensaje" >
+                            
+                                <div class="visto">
+                                    <span>10:30</span>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+               </div>
+               
+           </div>
+
+           <div class="footer">
+               <div class="contenedorFooter">
+                   <div class="emoticones">
+                        <div class="emociones">
+                            <i class="far fa-grin-squint fa-2x"></i>
+                        </div>
+                        <div class="adjuntar">
+                            <i class="fas fa-paperclip fa-2x"></i>
+                        </div>
+                   </div>
+
+                   <form class="escribir" id="addMessage" name="form" onsubmit="return limpiarFormulario()">
+                       <input class="mensaje" name="mensajeNuevo" type="text" placeholder="Escribe un mensaje aqui" value="">
+                       <input  class="botonEnviar" type="submit" value="enviar">
+                   </form>
+                   
+
+                   <div class="audio">
+                    <i class="fas fa-microphone fa-2x"></i>
+                   </div>
+
+               </div>
+           </div>
+
+        </div>
+
+        <div class="infoChatPersona" id="info">
+            <header>
+                <a href="#" onclick="ocultar()"><i class="fas fa-times fa-2x" ></i></a>
+                <p>Info. del grupo</p>
+            </header>
+            
+            <div class="contenedorInformacion">
+                <div class="imagenGrupo">
+                    <div class="grupoImagen">
+                        <div class="tamanoImagen">
+                            <div class="imagenGroup">
+                                <img class="cien" src="img/mrincreible.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="nombreGrupo">
+                        <div class="nombre">
+                            <p id="nombreChatPerfil"></p>
+                            <i class="fas fa-pen"></i>
+                        </div>
+    
+                        <div class="ultima">
+                            <span>ultima vez hoy a la(s) 15:42</span>
+                        </div>
+                    </div>
+            </div>
+    
+                <div class="descripcion">
+                    <p>Descripcion</p>
+    
+                    <div class="anade">
+                        <p>Añade una descripcion del grupo</p>
+                        <i class="fas fa-pen"></i>
+                    </div>
+                </div>
+    
+                <div class="archivos">
+                    <div class="enlaces">
+                        <p>Archivos, enlaces y documentos</p>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+    
+                    <p>Sin archivos multimedia, enlaces ni documentos</p>
+                </div>
+    
+                <div class="silenciar">
+                    <div class="notificacionesOut">
+                        <p>silenciar notificaciones</p>
+                        <i class="far fa-square"></i>
+                    </div>
+                    <div class="notificacionesOut">
+                        <p>Mensajes destacados</p>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="notificacionesOut">
+                        <p>Mensajes temporales</p>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+    
+                <div class="silenciar">
+                    <div class="notificacionesOut">
+                        <p id="frase"></p>
+                    </div>
+                    <div class="notificacionesOut">
+                        <p id="numero"></p>
+                    </div> 
+                </div>
+    
+                <div class="bloqueo">
+                    <div class="report">
+                        <i class="fas fa-ban"></i>
+                        <p>Bloquear</p>
+                    </div>  
+                </div>
+
+                <div class="bloqueo">
+                    <div class="report">
+                        <i class="fas fa-thumbs-down"></i>
+                        <p>Reportar contacto</p>
+                    </div>  
+                </div>
+
+                <div class="bloqueo">
+                    <div class="report">
+                        <i class="fas fa-trash"></i>
+                        <p>Eliminar chat</p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        function main () {
+            document.getElementById("perfilOwner").style.width = "101%";  
+            document.getElementById("perfilOwner").style.left = "-2px";  
+            document.getElementById("perfilOwner").style.height = "100vh";  
+        }
+
+        function cerrar (){
+            document.getElementById("perfilOwner").style.width = "0";  
+        }
+    </script>
+
+    <script>
+        function mostrar () {
+            document.getElementById("info").style.width = "489px";
+            document.getElementById("info").style.he = "100vh";
+        }
+
+        function ocultar () {
+            document.getElementById("info").style.width = "0"; 
+        }
+    </script>
+
+    <script>
+        function mostrarchat () {
+            document.getElementById("chat").style.flex = "1";
+            document.getElementById("chat").style.position = "absolute";
+        }
+    </script>
+
+    <script>
+        function limpiarFormulario() {
+            setTimeout('document.form.reset()', 1000);
+            return false
+        }
+    </script>
+</body>
+</html>

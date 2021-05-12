@@ -743,6 +743,13 @@ p {
   max-width: 65%;
 }
 
+.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa p {
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  padding: 6px 7px 8px 9px;
+  margin: 20px;
+}
+
 .main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje {
   background-color: #dcf8c6;
   border-radius: 10px;
@@ -785,30 +792,28 @@ p {
   max-width: 65%;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale p {
   background-color: white;
   border-radius: 10px;
-}
-
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .mensajeOut {
   padding: 6px 7px 8px 9px;
+  margin: 20px;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto {
   display: flex;
   justify-content: flex-end;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto span {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto span {
   margin-right: 10px;
   font-size: 12px;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto i {
   color: #919191;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i:last-child {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto i:last-child {
   margin-right: 10px;
 }
 
@@ -887,6 +892,12 @@ p {
 
 .main .chat .footer .contenedorFooter .escribir .mensaje::placeholder {
   color: #acacac;
+}
+
+.main .chat .footer .contenedorFooter .escribir .botonEnviar {
+  position: absolute;
+  right: 5%;
+  top: 24%;
 }
 
 .main .chat .footer .contenedorFooter .audio {

@@ -677,7 +677,14 @@ p{
 
                     .mensajeIngresa{
                         position: relative;
-                        max-width: 65%;
+                        max-width: 65%;       
+
+                        p {
+                            background-color: #dcf8c6;
+                            border-radius: 10px;
+                            padding: 6px 7px 8px 9px;
+                            margin:20px;
+                        }
 
                         .contenedorMensaje {
                             background-color: $colorMensajeEnviado;
@@ -717,12 +724,13 @@ p{
                     .mensajeSale{
                         position: relative;
                         max-width: 65%;
-                        .contenedorMensaje {
+
+                        p {
                             background-color: white;
                             border-radius: 10px;
-                            .mensajeOut {
-                                padding: 6px 7px 8px 9px;
-                            }
+                            padding: 6px 7px 8px 9px;
+                            margin:20px;
+                        }
 
                             .visto {
                                display: flex;
@@ -738,7 +746,7 @@ p{
                                    margin-right: 10px;
                                }
                            }
-                        }
+                        
                     }
                 }
             }
@@ -807,6 +815,12 @@ p{
                         &::placeholder {
                             color: $textoTerciario;
                         }
+                    }
+
+                    .botonEnviar {
+                        position: absolute;
+                        right: 5%;
+                        top:24%;
                     }
                 }
 

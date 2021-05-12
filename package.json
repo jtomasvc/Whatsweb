@@ -15,6 +15,15 @@
     "gulp-sass": "^4.1.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtomasvc/Whatsweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jtomasvc/Whatsweb/issues"
+  },
+  "homepage": "https://github.com/jtomasvc/Whatsweb#readme"
 }
