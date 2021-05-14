@@ -4,32 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" 
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" 
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>WhatsWeb</title>
 </head>
 <body>
-<form name="login" onsubmit="return validarformulario()" method="POST">
-    <legend>Inicia Sesión</legend>
-    <div class="campo">
-        <input type="text" id="usuario" name="usuario">
-        <label for="usuario">Email o número de teléfono</label>    
-    </div>
-    <div class="campo">
-        <input type="password" id="password" name="password">
-        <label for="password">Contraseña</label> 
-    </div>
-    <div class="submit">
-        <input type="submit" value="Iniciar sesión">
-    </div>
-    <div class="acciones">
-        <div class="recuerdame">
-            <input id="recuerdame" type="checkbox">
-            <label for="recuerdame">Recuerdame</label>
-        </div>
-        <div class="ayuda">
-            <a href="#">¿Necesitas ayuda?</a>
+    <div class="cabeceraIndex">
+        <div class="logo">
+            <i class="fab fa-whatsapp fa-3x"></i>
+            <h3>WhatsWeb</h3>
         </div>
     </div>
-</form>
-<script src="js/scripts.js"></script>
+    
+    <div class="fondo">
+        <div class="login">
+            <div class="informacion">
+                <h2>Para usar whatsWeb en tu computadora:</h2>
+                <ol>
+                    <li>Abre WhatsWeb en tu pc</li>
+                    <li>Ingresa tu usuario y contraseña</li>
+                    <li>Si todo esta bien, empieza a disfrutar de tu chat</li>
+                </ol>
+            </div>
+            <form  data-cy="form-login" name="login" onsubmit="return validarformulario()" method="POST">
+                <legend data-cy="titulo">Inicia Sesión</legend>
+                <div class="campo">
+                    <input data-cy="usuario-input" type="text" id="usuario" name="usuario">
+                    <label for="usuario">Email o número de teléfono</label>    
+                </div>
+                <div class="campoPassword">
+                    <input data-cy="password-input" type="password" id="password" name="password">
+                    <label for="password">Contraseña</label> 
+                </div>
+                <div class="submit">
+                    <input data-cy="submit-boton" class="enviar" type="submit" value="Iniciar sesión">
+                </div>
+                <div class="acciones">
+                    <div class="recuerdame">
+                        <input id="recuerdame" type="checkbox">
+                        <label for="recuerdame">Recuerdame</label>
+                    </div>
+                    <div class="ayuda">
+                        <a href="#">¿Necesitas ayuda?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-GPkwjpKt68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <script src="js/validarFormulario.js"></script>
+    </div>
 </body>
 </html>

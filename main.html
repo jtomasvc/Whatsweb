@@ -22,7 +22,7 @@
                 <div class="cabeceraChats">
                     <div class="imagenMain" onclick="main()">
                        <div class="imagenDiv">
-                           <img src="img/FotoPerfil.jpg" alt="Imagen Perfil" class="imagenOwner">
+                           <img data-cy="imagen-perfil" src="img/FotoPerfil.jpg" alt="Imagen Perfil" class="imagenOwner">
                        </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                             </div>  
                         </div>
                     </div>
-                    <div class="listado">
+                    <div data-cy=chats class="listado">
                         <div class="chatPersona">
                             <div class="fotoPersona">
                                 <div class="fotoPerfil">
@@ -377,7 +377,7 @@
                    </div>
 
                    <div class="nombreUsuario">
-                       <p id="nombreUsuarioChat"></p>
+                       <p data-cy="nombre-usuario" id="nombreUsuarioChat"></p>
                        <p class="conexionUsuario">En linea</p>
                    </div>
                </div>
@@ -393,31 +393,18 @@
            </header>
 
 
-           <div class="contenedorChat">
+           <div data-cy="contenedorChat" class="contenedorChat">
                <div class="chatUnico">
                     <div class="chatIngresa" >
                         <div class="mensajeIngresa" id="container">
-                            <div class="contenedorMensaje" >
 
-                                    <button onclick="EliminarMensajes()">eliminar</button>
-                                <div class="visto">
-                                    <span>10:30</span>
-                                    <i class="fas fa-check"></i>
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="chatSale">
                         <div class="mensajeSale" id="containerllega">
-                            <div class="contenedorMensaje" >
-                            
-                                <div class="visto">
-                                    <span>10:30</span>
-                                </div>
-                            </div>
-                        </div>      
+                           
+                        </div>    
                     </div>
                </div>
                
@@ -435,8 +422,8 @@
                    </div>
 
                    <form class="escribir" id="addMessage" name="form" onsubmit="return limpiarFormulario()">
-                       <input class="mensaje" name="mensajeNuevo" type="text" placeholder="Escribe un mensaje aqui" value="">
-                       <input  class="botonEnviar" type="submit" value="enviar">
+                       <input data-cy="crearMensaje" class="mensaje" name="mensajeNuevo" type="text" placeholder="Escribe un mensaje aqui" value="">
+                       <input data-cy="enviarMensaje" class="botonEnviar" type="submit" value="enviar">
                    </form>
                    
 
@@ -546,6 +533,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script scr="/socket.io/socket.io.js"></script>
     <script>
         function main () {
             document.getElementById("perfilOwner").style.width = "101%";  

@@ -689,9 +689,6 @@ p{
                         .contenedorMensaje {
                             background-color: $colorMensajeEnviado;
                             border-radius: 10px;
-                            .mensajeIntro {
-                                padding: 6px 7px 8px 9px;
-                            }
 
                             .visto {
                                 display: flex;
@@ -725,27 +722,43 @@ p{
                         position: relative;
                         max-width: 65%;
 
-                        p {
+                        .contenedorMensaje {
                             background-color: white;
                             border-radius: 10px;
                             padding: 6px 7px 8px 9px;
-                            margin:20px;
-                        }
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
 
-                            .visto {
-                               display: flex;
-                               justify-content:flex-end;
-                               span {
-                                   margin-right: 10px;
-                                   font-size: 12px;    
+                            .eliminacion {
+                                display: flex;
+                                position: absolute;
+                                right: 0;
+                                top:6px;
+                                margin-left: 50%;
+                                border: none;
+                                background: transparent;
+                                align-items: center;
+                            }
+                                .visto {
+                                   display: flex;
+                                   justify-content:flex-end;
+                                   align-items: center;
+                                   margin-top: 10px;
+                                   span {
+                                       margin-right: 10px;
+                                       font-size: 12px;    
+                                       margin-top: 12px;
+                                   }
+                                   i {
+                                       color: $colorIconos;
+                                   }
+                                   i:last-child {
+                                       margin-right: 10px;
+                                   }
                                }
-                               i {
-                                   color: $colorIconos;
-                               }
-                               i:last-child {
-                                   margin-right: 10px;
-                               }
-                           }
+
+                        }
                         
                     }
                 }
@@ -1029,5 +1042,160 @@ p{
         .bloqueo:last-child {
             margin-bottom: 30px;
         }
+    }
+}
+
+
+/**** ESTILOS LOGIN ******/
+
+.cabeceraIndex {
+    background-color: #00bfa5;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    position: fixed;
+    height: 227px;
+    content: "";
+    display: flex;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        width: 50%;
+        position: absolute;
+        top:22px;
+        color:white;
+
+        i {
+            margin-right: 15px;
+            color: #00e676;
+        }
+    }
+}
+.fondo {
+    width: 60%;
+    margin: 0 auto;
+    z-index: 2;
+    top:100px;
+    position: relative;
+    box-shadow: 0 1px 1px 0;
+    display: flex;
+    overflow:hidden;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    .login{
+        display: flex;
+        margin: 0 auto;
+        padding: 64px 60px 110px; 
+        width: 100%;
+        justify-content: space-around;
+        .informacion {
+
+
+            h2 {
+                margin: 0 0 52px 0;
+                font-size: 28px;
+                font-weight: 300;
+            }
+            ol{
+                padding-left: 20px;
+                margin-top: 6rem;
+
+                li {
+                    margin: 10px 0;
+                    font-size: 18px;    
+                }
+            }       
+           
+        }
+        
+        form {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+
+            legend {
+                margin: 0 0 52px 0;
+                font-size: 28px;
+                font-weight: 300;
+                margin-bottom: 52px;
+            }
+            .campo {
+                margin-bottom: .8rem;
+                input {
+                   flex: 1;
+                   padding: 1.3rem 1rem .7rem 1rem;
+                   border: none;
+                   border-radius: 5px;
+                   color: black;
+                   background-color: #f9f9f9;
+                }
+
+                label {
+                  position: absolute;
+                  top: 16%;
+                  right: 15.2%;
+                  transition: font-size .2s ease, top .2s ease;
+                }
+
+                input:focus + label {
+                    font-size: .6rem;
+                    top: 9.8rem;
+                    right:22%;
+                }
+            }
+
+            .campoPassword {
+                margin-bottom: .8rem;
+                input {
+                   flex: 1;
+                   padding: 1.3rem 1rem .7rem 1rem;
+                   border: none;
+                   border-radius: 5px;
+                   color: black;
+                   background-color: #f9f9f9;
+                }
+                label {
+                  position: absolute;
+                  top: 23%;
+                  right: 20%; 
+                  transition: font-size .2s ease, top .2s ease;
+                }
+                input:focus + label {
+                    font-size: .6rem;
+                    top: 23%;
+                    right:28%;
+                }
+            }
+
+            .submit {
+                width: 100%;
+                margin-top: 20px;
+
+                 .enviar {
+                    width: 100%;
+                    padding: 1rem;
+                    background-color: #00bfa5;
+                    border: none;
+                    border-radius: 10px;
+                    color: white;
+                }
+            }
+
+            .acciones {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .video {
+        padding: 72px 60px;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
     }
 }

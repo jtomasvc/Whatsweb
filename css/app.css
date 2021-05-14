@@ -755,10 +755,6 @@ p {
   border-radius: 10px;
 }
 
-.main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .mensajeIntro {
-  padding: 6px 7px 8px 9px;
-}
-
 .main .chat .contenedorChat .chatUnico .chatIngresa .mensajeIngresa .contenedorMensaje .visto {
   display: flex;
   justify-content: flex-end;
@@ -792,28 +788,44 @@ p {
   max-width: 65%;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale p {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje {
   background-color: white;
   border-radius: 10px;
   padding: 6px 7px 8px 9px;
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .eliminacion {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  margin-left: 50%;
+  border: none;
+  background: transparent;
+  align-items: center;
+}
+
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto span {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto span {
   margin-right: 10px;
   font-size: 12px;
+  margin-top: 12px;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto i {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i {
   color: #919191;
 }
 
-.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .visto i:last-child {
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto i:last-child {
   margin-right: 10px;
 }
 
@@ -1117,4 +1129,160 @@ p {
 
 .main .infoChatPersona .bloqueo:last-child {
   margin-bottom: 30px;
+}
+
+/**** ESTILOS LOGIN ******/
+.cabeceraIndex {
+  background-color: #00bfa5;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  position: fixed;
+  height: 227px;
+  content: "";
+  display: flex;
+}
+
+.cabeceraIndex .logo {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 50%;
+  position: absolute;
+  top: 22px;
+  color: white;
+}
+
+.cabeceraIndex .logo i {
+  margin-right: 15px;
+  color: #00e676;
+}
+
+.fondo {
+  width: 60%;
+  margin: 0 auto;
+  z-index: 2;
+  top: 100px;
+  position: relative;
+  box-shadow: 0 1px 1px 0;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+}
+
+.fondo .login {
+  display: flex;
+  margin: 0 auto;
+  padding: 64px 60px 110px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.fondo .login .informacion h2 {
+  margin: 0 0 52px 0;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.fondo .login .informacion ol {
+  padding-left: 20px;
+  margin-top: 6rem;
+}
+
+.fondo .login .informacion ol li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.fondo .login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.fondo .login form legend {
+  margin: 0 0 52px 0;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 52px;
+}
+
+.fondo .login form .campo {
+  margin-bottom: .8rem;
+}
+
+.fondo .login form .campo input {
+  flex: 1;
+  padding: 1.3rem 1rem .7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  background-color: #f9f9f9;
+}
+
+.fondo .login form .campo label {
+  position: absolute;
+  top: 16%;
+  right: 15.2%;
+  transition: font-size .2s ease, top .2s ease;
+}
+
+.fondo .login form .campo input:focus + label {
+  font-size: .6rem;
+  top: 9.8rem;
+  right: 22%;
+}
+
+.fondo .login form .campoPassword {
+  margin-bottom: .8rem;
+}
+
+.fondo .login form .campoPassword input {
+  flex: 1;
+  padding: 1.3rem 1rem .7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  background-color: #f9f9f9;
+}
+
+.fondo .login form .campoPassword label {
+  position: absolute;
+  top: 23%;
+  right: 20%;
+  transition: font-size .2s ease, top .2s ease;
+}
+
+.fondo .login form .campoPassword input:focus + label {
+  font-size: .6rem;
+  top: 23%;
+  right: 28%;
+}
+
+.fondo .login form .submit {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.fondo .login form .submit .enviar {
+  width: 100%;
+  padding: 1rem;
+  background-color: #00bfa5;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.fondo .login form .acciones {
+  margin-top: 20px;
+}
+
+.fondo .video {
+  padding: 72px 60px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
 }

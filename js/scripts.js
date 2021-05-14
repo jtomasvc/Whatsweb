@@ -8,7 +8,7 @@ const socket = io.connect('https://intercom--api.herokuapp.com/', {
 
 socket.on('message', function(data) {
     
-    mostrarMensajeSocket(data,false)
+    mostrarMensajes(data,false)
     console.log(data)
 })
 
@@ -98,7 +98,9 @@ function enviaData(){
           };
 
         axios.post(`https://intercom--api.herokuapp.com/api/messages/609b0dff0565e9bd8ed94ee3`,mensajeNuevo,options ) 
-        .then(response => console.log("Mensaje back",response), socket.emit('messages', mensajeNuevo))   
+        .then(function(response){
+
+        })   
            
     })
 
@@ -109,7 +111,6 @@ enviaData()
 function traerChats() {
     axios.get('https://intercom--api.herokuapp.com/api/chats/')
     .then(function (response){
-        console.log("chats", response)
     })
 
 }
@@ -117,36 +118,140 @@ function traerChats() {
 traerChats()
 
 
-function mostrarMensajeSocket(mensajeUsuario, isListaMensajes) {
-    console.log("mensaje Usuario", mensajeUsuario)
+/*function mostrarMensajeSocket(mensajeUsuario, isListaMensajes) {
+    console.log("mensaje Usuario:", mensajeUsuario)
     let idUsuarioLogueado = sessionStorage.getItem("usuarioID")
-    let mensaje =  mensajeUsuario.message   ; 
-    let idUsuarioMensaje = isListaMensajes ? mensajeUsuario.user._id : mensajeUsuario.user   ; 
+    let mensaje =  mensajeUsuario.message; 
+    console.log("mensaje mensaje:", mensaje)
+    let idUsuarioMensaje = isListaMensajes ? mensajeUsuario.user._id : mensajeUsuario.user ; 
     if(idUsuarioLogueado === idUsuarioMensaje) {
-        var burbuja = document.getElementById('container');
+       var burbuja = document.getElementById('container');
         let mensajeFinal = document.createElement('p')
         mensajeFinal.innerText = mensaje
         burbuja.appendChild(mensajeFinal)
+        console.log("mensaje desde mensaje socket", mensajeFinal)    
     }else {
         var burbuja = document.getElementById('containerllega');
         let mensajeFinal = document.createElement('p')
         mensajeFinal.innerText = mensaje
         burbuja.appendChild(mensajeFinal)
     }                    
-}
-
+}*/
 
 function mostrarMensajes () {
     axios.get('https://intercom--api.herokuapp.com/api/messages/')
     .then(function (response){
-        console.log("Mensaje del response",response.data.data)       
         var mensajes = response.data.data; 
-        for(i=0; i<response.data.data.length; i++){
-            mostrarMensajeSocket(response.data.data[i],true)
-            sessionStorage.setItem("ideliminar", mensajes[i]._id)
-        }
+
+        console.log("mensajs", mensajes)
+
+       /* response.data.data.map(objetoMensaje => {
+            
+            console.log("Fecha split",objetoMensaje.time.split(".")[0]) })*/
+
+        let listaOrdenada = mensajes.sort(function(a,b){
+            return a.time.localeCompare(b.time);
+          })
+        console.log("lista ordenada",listaOrdenada)
+
+
+       /* listaOrdenada.map(objetomensaje => {
+            sessionStorage.setItem("ideliminar", objetomensaje._id)
+            let idUsuarioLogueado = sessionStorage.getItem("usuarioID")
+            let idUsuarioMensaje = objetomensaje.message ? objetomensaje.user._id : objetomensaje.user ;
+            if(idUsuarioLogueado === idUsuarioMensaje){
+               let html = `
+                <div class="contenedorMensaje" >
+                    ${objetomensaje.message}          
+                <button onclick="EliminarMensajes()">eliminar</button>
+                <div class="visto">
+                    <span>${objetomensaje.time}</span>
+                    <i class="fas fa-check"></i>
+                    <i class="fas fa-check"></i>
+                </div>
+                </div>
+                `;document.getElementById('containerllega').innerHTML = html;
+            }else{
+                                let  mensajellega = `
+                    <div class="contenedorMensaje" >
+                        ${objetomensaje.message}          
+                      <button onclick="EliminarMensajes()">eliminar</button>
+                      <div class="visto">
+                        <span>${objetomensaje.time}</span>
+                        <i class="fas fa-check"></i>
+                        <i class="fas fa-check"></i>
+                      </div>
+                     </div>
+                    `; document.getElementById('container').innerHTML = mensajellega;
+
+                }
+
+        })*/
+
+       /* for(i=0; i<response.data.data.length; i++){ 
+            console.log("mensaje del ciclo",response.data.data[i].user._id)
+            let idUsuarioLogueado = sessionStorage.getItem("usuarioID")
+            let idUsuarioMensaje = response.data.data[i].message ? response.data.data[i].user._id : response.data.data[i].user ;
+            console.log("que trae",response.data.data[i].user._id)
+            if(idUsuarioLogueado === idUsuarioMensaje) {
+                let html = listaOrdenada.map(message => {
+    
+                    sessionStorage.setItem("ideliminar", message._id)
+                    return `
+                    <div class="contenedorMensaje" >
+                        ${message.message}          
+                      <button onclick="EliminarMensajes()">eliminar</button>
+                      <div class="visto">
+                        <span>${message.time}</span>
+                        <i class="fas fa-check"></i>
+                        <i class="fas fa-check"></i>
+                      </div>
+                     </div>
+                    `;
+                }); document.getElementById('containerllega').innerHTML = html;
+            }else {
+                let mensajellega = mensajes.map(message => {
+    
+                    sessionStorage.setItem("ideliminar", message._id)
+                    return `
+                    <div class="contenedorMensaje" >
+                        ${message.message}          
+                      <button onclick="EliminarMensajes()">eliminar</button>
+                      <div class="visto">
+                        <span>${message.time}</span>
+                        <i class="fas fa-check"></i>
+                        <i class="fas fa-check"></i>
+                      </div>
+                     </div>
+                    `;
+                }); document.getElementById('container').innerHTML = mensajellega;
+            }                    
+
+        }*/
+
+        
+        let html = listaOrdenada.map(message => {
+            sessionStorage.setItem("ideliminar", message._id)
+   
+            return `
+            <div class="contenedorMensaje" >
+                ${message.message}          
+
+                <div ="eliminar">
+                <button class="eliminacion" onclick="EliminarMensajes()"><i class="far fa-times-circle"></i></button>
+                </div>
+              
+              <div class="visto">
+                <span>${message.time}</span>
+                <i class="fas fa-check"></i>
+                <i class="fas fa-check"></i>
+              </div>
+             </div>
+            `;
+        }); document.getElementById('containerllega').innerHTML = html;
          
-    })
+    })  
+   
 }
 
 mostrarMensajes()
@@ -162,22 +267,19 @@ function EliminarMensajes () {
 }
 
 
-function validarformulario(){                                                      
-    var usuario = document.forms["login"] ["usuario"].value;
-    var password = document.forms["login"] ["password"].value;
-    if(( usuario == "tomas") && (password == "usuario2")) {
-        sessionStorage.setItem("usuarioID", "60977601aa71c92fa9b453fd")
-        window.location.href = 'main.html'
-        return false;
-    } else if (( usuario == "sebastian") && (password == "usuario2")) {
-        sessionStorage.setItem("usuarioID", "60977601aa71c92fa9b453fc")
-        window.location.href = 'main.html'
-        return false;
-    }
 
-}
 
-validarformulario()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
