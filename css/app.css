@@ -680,10 +680,25 @@ p {
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-image: url(../img//fondo.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: darkgray;
+  height: 100%;
+}
+
+@media (min-width: 480px) {
+  .main .chat .contenedorChat .chatUnico {
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: url(../img//fondo.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 @media (min-width: 768px) {
@@ -797,6 +812,10 @@ p {
   position: relative;
 }
 
+.main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje:hover .eliminacion {
+  display: block;
+}
+
 .main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .eliminacion {
   display: flex;
   position: absolute;
@@ -806,6 +825,7 @@ p {
   border: none;
   background: transparent;
   align-items: center;
+  display: none;
 }
 
 .main .chat .contenedorChat .chatUnico .chatSale .mensajeSale .contenedorMensaje .visto {
@@ -896,14 +916,39 @@ p {
 
 .main .chat .footer .contenedorFooter .escribir .mensaje::-moz-placeholder {
   color: #acacac;
+  font-size: 12px;
 }
 
 .main .chat .footer .contenedorFooter .escribir .mensaje:-ms-input-placeholder {
   color: #acacac;
+  font-size: 12px;
 }
 
 .main .chat .footer .contenedorFooter .escribir .mensaje::placeholder {
   color: #acacac;
+  font-size: 12px;
+}
+
+@media (min-width: 480px) {
+  .main .chat .footer .contenedorFooter .escribir .mensaje {
+    padding: 9px 12px 11px;
+    margin: 5px 10px;
+    border-radius: 21px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    width: inherit;
+    outline: none;
+    border: none;
+  }
+  .main .chat .footer .contenedorFooter .escribir .mensaje::-moz-placeholder {
+    color: #acacac;
+  }
+  .main .chat .footer .contenedorFooter .escribir .mensaje:-ms-input-placeholder {
+    color: #acacac;
+  }
+  .main .chat .footer .contenedorFooter .escribir .mensaje::placeholder {
+    color: #acacac;
+  }
 }
 
 .main .chat .footer .contenedorFooter .escribir .botonEnviar {
