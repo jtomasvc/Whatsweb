@@ -623,6 +623,12 @@ p {
   cursor: pointer;
 }
 
+@media (min-width: 1366px) {
+  .main .chat .chatMain .buscarOpciones .atras {
+    display: none;
+  }
+}
+
 .main .chat .chatMain .buscarOpciones .estado {
   padding: .5rem 1rem;
 }

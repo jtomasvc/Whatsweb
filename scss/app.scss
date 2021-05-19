@@ -572,6 +572,12 @@ p{
                 align-items: center;
                 cursor: pointer;
 
+                .atras {
+                    @include desktop {
+                        display: none;
+                    }
+                }
+
                 .estado {
                     padding: .5rem 1rem;
 
