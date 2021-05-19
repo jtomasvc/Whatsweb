@@ -17,7 +17,7 @@
     </div>
 
     <div class="main">
-        <aside class="chats">
+        <aside class="chats" id="abrir">
             <header class="headerChats">
                 <div class="cabeceraChats">
                     <div class="imagenMain" onclick="main()">
@@ -383,6 +383,9 @@
                </div>
 
                <div class="buscarOpciones">
+                <div class="atras" onclick="cerrarChat()">
+                    <i class="fas fa-arrow-left"></i>
+                </div> 
                 <div class="estado">
                     <i class="fas fa-search"></i>
                 </div>
@@ -562,6 +565,14 @@
         function mostrarchat () {
             document.getElementById("chat").style.flex = "1";
             document.getElementById("chat").style.position = "absolute";
+            document.getElementById("chat").style.zIndex = '99'
+        }
+    </script>
+      <script>
+        function cerrarChat () {
+            document.getElementById("abrir").style.flex = "1";
+            document.getElementById("abrir").style.position = "absolute";
+            document.getElementById("abrir").style.zIndex = '100'
         }
     </script>
 
